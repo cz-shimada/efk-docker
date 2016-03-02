@@ -1,19 +1,21 @@
-# Docker machine startup on bash.
+# DockerMachine startup.
 ## Commands.
 eval "$(docker-machine env default)"  
 docker-compose build  
 docker-compose up  
 
-# Fluentd usecase.
+# fluentd usecase.
 ## append worker logs
-  * Login Fluentd   
-    docker exec -it efkdocker_fluentd-worker_1 /bin/bash
-  * create logs
-    cd /fluentd/log  
-    touch application.log
-  *  append logs 
-     (echo "2016-03-02 12:58:46 +0900 [ERROR] modules.filters ForkJoinPool-1-worker-5"; echo "method=GET requestId=1 uri=/polling/services/ abc") >> application.log
-     (echo "2016-03-02 12:58:46 +0900 [INFO] modules.filters ForkJoinPool-1-worker-5"; echo "method=GET requestId=1 uri=/polling/services/ abc") >> application.log
+  * Login Fluentd  
+    docker exec -it efkdocker_fluentd-worker_1 /bin/bash  
+    
+  * create logs  
+    cd /fluentd/log      
+    touch application.log  
+
+  *  append logs  
+     (echo "2016-03-02 12:58:46 +0900 [ERROR] modules.filters ForkJoinPool-1-worker-5"; echo "method=GET requestId=1 uri=/polling/services/ abc") >> application.log  
+     (echo "2016-03-02 12:58:46 +0900 [INFO] modules.filters ForkJoinPool-1-worker-5"; echo "method=GET requestId=1 uri=/polling/services/ abc") >> application.log  
 
 
 # Elasticseach-Kibana
